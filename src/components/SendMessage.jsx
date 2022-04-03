@@ -10,6 +10,7 @@ function SendMessage({ scroll }) {
   const [message, setMessage] = useState("");
   const sendMsg = async (e) => {
     e.preventDefault();
+
     const { uid, photoURL } = auth.currentUser;
 
     await db.collection("messages").add({
@@ -37,6 +38,7 @@ function SendMessage({ scroll }) {
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          required
         />
         <Button
           style={{
